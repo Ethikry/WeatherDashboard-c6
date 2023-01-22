@@ -237,7 +237,6 @@ $("input").on("keydown", function search(e) {
         searchAnchor.appendChild(searchLink);
         searchAnchor.title = cityName.value;
         searchAnchor.href = "#";
-        searchAnchor.onclick="search(pastSearches[i]); return fal";
         searchItem.appendChild(searchAnchor);
         searchHistory.appendChild(searchItem);
       }
