@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../public/output.css" />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <title>Weather App</title>
   </head>
   <body>
@@ -76,14 +77,223 @@
       </nav>
     </header>
 
-    <section>
-        <div>
-            <h1 class="text-2xl font-extrabold">
-                Search for a city:
-                <input type="search" id="input_city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </h1>
+    <section class="flex flex-row">
+      <div class="basis-1/4">
+        <h1 class="text-2xl font-extrabold pl-10">Search for a city:</h1>
+        <div class="pl-10">
+          <input
+            type="search"
+            id="input_city"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          />
         </div>
+        <div class="pl-10 pt-10">
+          <div
+            class="text-white divide-y divide-gray-200 dark:divide-gray-700 block bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+          >
+            <ul
+              class="text-white text-xl max-w-md divide-y divide-gray-200 dark:divide-gray-700 pl-10 block"
+              id="search_history"
+            ></ul>
+          </div>
+        </div>
+      </div>
+      <div class="basis-3/4 p-10">
+        <div
+          class="bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 text-xl w-full p-10"
+        >
+          <h4
+            class="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white"
+            id="place_name"
+          >
+            City
+          </h4>
+          <h5
+            class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+            id="now_date"
+          ></h5>
+          <img src="" alt="weather icon" id="now_icon" style="display: none" />
+          <p
+            class="font-normal text-gray-700 dark:text-gray-400"
+            id="now_temp"
+          ></p>
+          <p
+            class="font-normal text-gray-700 dark:text-gray-400"
+            id="now_wind"
+          ></p>
+          <p
+            class="font-normal text-gray-700 dark:text-gray-400"
+            id="now_humidity"
+          ></p>
+        </div>
+
+        <div class="grid grid-cols-5 gap-4 p-2">
+          <div class="">
+            <span
+              href="#"
+              class="block w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+            >
+              <h5
+                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                id="day1_date"
+              >
+                Day 1 Forecast
+              </h5>
+              <img
+                src=""
+                alt="weather icon"
+                id="day1_icon"
+                style="display: none"
+              />
+              <p
+                class="font-normal text-gray-700 dark:text-gray-400"
+                id="day1_temp"
+              ></p>
+              <p
+                class="font-normal text-gray-700 dark:text-gray-400"
+                id="day1_wind"
+              ></p>
+              <p
+                class="font-normal text-gray-700 dark:text-gray-400"
+                id="day1_humidity"
+              ></p>
+            </span>
+          </div>
+          <div class="">
+            <span
+              href="#"
+              class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+            >
+              <h5
+                class="mb-2 w-full text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                id="day2_date"
+              >
+                Day 2 Forecast
+              </h5>
+              <img
+                src=""
+                alt="weather icon"
+                id="day2_icon"
+                style="display: none"
+              />
+              <p
+                class="font-normal text-gray-700 dark:text-gray-400"
+                id="day2_temp"
+              ></p>
+              <p
+                class="font-normal text-gray-700 dark:text-gray-400"
+                id="day2_wind"
+              ></p>
+              <p
+                class="font-normal text-gray-700 dark:text-gray-400"
+                id="day2_humidity"
+              ></p>
+            </span>
+          </div>
+          <div class="">
+            <span
+              href="#"
+              class="block w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+            >
+              <h5
+                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                id="day3_date"
+              >
+                Day 3 Forecast
+              </h5>
+              <img
+                src=""
+                alt="weather icon"
+                id="day3_icon"
+                style="display: none"
+              />
+              <p
+                class="font-normal text-gray-700 dark:text-gray-400"
+                id="day3_temp"
+              ></p>
+              <p
+                class="font-normal text-gray-700 dark:text-gray-400"
+                id="day3_wind"
+              ></p>
+              <p
+                class="font-normal text-gray-700 dark:text-gray-400"
+                id="day3_humidity"
+              ></p>
+            </span>
+          </div>
+          <div class="">
+            <span
+              href="#"
+              class="block w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+            >
+              <h5
+                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                id="day4_date"
+              >
+                Day 4 Forecast
+              </h5>
+              <img
+                src=""
+                alt="weather icon"
+                id="day4_icon"
+                style="display: none"
+              />
+              <p
+                class="font-normal text-gray-700 dark:text-gray-400"
+                id="day4_temp"
+              ></p>
+              <p
+                class="font-normal text-gray-700 dark:text-gray-400"
+                id="day4_wind"
+              ></p>
+              <p
+                class="font-normal text-gray-700 dark:text-gray-400"
+                id="day4_humidity"
+              ></p>
+            </span>
+          </div>
+          <div class="">
+            <span
+              href="#"
+              class="block w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+            >
+              <h5
+                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                id="day5_date"
+              >
+                Day 5 Forecast
+              </h5>
+              <img
+                src=""
+                alt="weather icon"
+                id="day5_icon"
+                style="display: none"
+              />
+              <p
+                class="font-normal text-gray-700 dark:text-gray-400"
+                id="day5_temp"
+              ></p>
+              <p
+                class="font-normal text-gray-700 dark:text-gray-400"
+                id="day5_wind"
+              ></p>
+              <p
+                class="font-normal text-gray-700 dark:text-gray-400"
+                id="day5_humidity"
+              ></p>
+            </span>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <footer
+      class="fixed bottom-0 w-full p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800"
+    >
+      <p class="text-sm text-gray-500 text-center dark:text-gray-400 place-self-center"
+        >Made by Ethan Gayton
+      </p>
+    </footer>
   </body>
   <script src="script.js"></script>
 </html>
