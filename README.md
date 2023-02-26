@@ -14,6 +14,10 @@
   * [Contact Information](#Contact)
   ## Description
   This app uses the openweathermap api to provide an accurate weather forecast for different places. 
+  ![Screenshot_20230226_052431](https://user-images.githubusercontent.com/113566829/221410517-fb8d63fb-e21e-4385-bfda-bf2845c529ed.png)
+
+  
+  Link to deployed app: https://ethikry.github.io/WeatherDashboard-c6/
   ## Installation
   To install this project, clone this repository and install the necessary packages. 
   ## Usage
