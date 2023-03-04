@@ -40,7 +40,7 @@ var searchHistory = document.getElementById("search_history");
 
 async function searchCity(city) {
   var cityApiSearch = await fetch(
-    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
       city +
       "&limit=5&appid=bef9c29ceef752be853fa2c6c1c0c14d"
   );
