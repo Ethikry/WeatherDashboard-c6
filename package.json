@@ -1,0 +1,23 @@
+{
+  "name": "weatherdashboard-c6",
+  "version": "1.0.0",
+  "description": "Weather forecast",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:tailwind": "tailwindcss -i input.css -o public/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ethikry/WeatherDashboard-c6.git"
+  },
+  "author": "Ethan Gayton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ethikry/WeatherDashboard-c6/issues"
+  },
+  "homepage": "https://github.com/Ethikry/WeatherDashboard-c6#readme",
+  "dependencies": {
+    "tailwindcss": "^3.2.7"
+  }
+}
